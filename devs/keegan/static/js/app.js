@@ -5,7 +5,6 @@
 const url = 'https://keegandavis.github.io/disaster-data-json/emdat_cleaned.json';
 
 d3.json(url).then(disaster => {
-    console.log(disaster[0])
     // store array of disasters
     let disasters = disaster
     // function call with array to add layers and markers
@@ -23,40 +22,77 @@ function initLayersAndMarkers(disasterData) {
     let stormLayer = L.layerGroup();
     let volcanoLayer = L.layerGroup();
 
-    // create object to hold icons with key equal to disaster name from dataset, so the correct values can be loaded for each disaster type
-    let icons = {
-        'Drought': L.icon({iconURL: '../../Resources/Images/drought.png', iconSize: [38,38]}),
-        'Earthquake': L.icon({iconURL: '../../Resources/Images/earthquake.png', iconSize: [38,38]}),
-        'Extreme temperature': L.icon({iconURL: '../../Resources/Images/extreme_temps.png', iconSize: [38,38]}),
-        'Flood': L.icon({iconURL: '../../Resources/Images/flood.png', iconSize: [38,38]}),
-        'Mass movement (dry)': L.icon({iconURL: '../../Resources/Images/landslide.png', iconSize: [38,38]}),
-        'Mass movement (wet)': L.icon({iconURL: '../../Resources/Images/mudslide.png', iconSize: [38,38]}),
-        'Storm': L.icon({iconURL: '../../Resources/Images/storm.png', iconSize: [38,38]}),
-        'Volcanic activity': L.icon({iconURL: '../../Resources/Images/volcano.png', iconSize: [38,38]})
-    };
+    let colors = {
+        'Drought': '#ffee65',
+        'Earthquake': '#fdcce5',
+        'Extreme temperature': '#fd7f6f',
+        'Flood': '#7eb0d5',
+        'Mass movement (dry)': '#bd7ebe',
+        'Mass movement (wet)': '#8bd3c7',
+        'Storm': '#b2e061',
+        'Volcanic activity': '#ffb55a'
+    }
 
     // loop through each disaster and add a marker to the layer that corresponds to the type of disaster
     disasterData.forEach(disaster => {
         if (disaster.Type == 'Drought') {
-            L.marker([disaster.Lat, disaster.Lng], {icon: icons[disaster.Type]}).addTo(droughtLayer)
+            L.circleMarker([disaster.Lat, disaster.Lng], {
+                color: colors[disaster.Type],
+                weight: 1,
+                fillOpacity: 0.1,
+                radius: 7
+            }).addTo(droughtLayer)
         } else if (disaster.Type == 'Earthquake') {
-            L.marker([disaster.Lat, disaster.Lng], {icon: icons[disaster.Type]}).addTo(earthquakeLayer)
+            L.circleMarker([disaster.Lat, disaster.Lng], {
+                color: colors[disaster.Type],
+                weight: 1,
+                fillOpacity: 0.1,
+                radius: 7
+            }).addTo(earthquakeLayer)
         } else if (disaster.Type == 'Extreme temperature') {
-            L.marker([disaster.Lat, disaster.Lng], {icon: icons[disaster.Type]}).addTo(extremeTempLayer)
+            L.circleMarker([disaster.Lat, disaster.Lng], {
+                color: colors[disaster.Type],
+                weight: 1,
+                fillOpacity: 0.1,
+                radius: 7
+            }).addTo(extremeTempLayer)
         } else if (disaster.Type == 'Flood') {
-            L.marker([disaster.Lat, disaster.Lng], {icon: icons[disaster.Type]}).addTo(floodLayer)
+            L.circleMarker([disaster.Lat, disaster.Lng], {
+                color: colors[disaster.Type],
+                weight: 1,
+                fillOpacity: 0.1,
+                radius: 7
+            }).addTo(floodLayer)
         } else if (disaster.Type == 'Mass movement (dry)') {
-            L.marker([disaster.Lat, disaster.Lng], {icon: icons[disaster.Type]}).addTo(dryMassMovementLayer)
+            L.circleMarker([disaster.Lat, disaster.Lng], {
+                color: colors[disaster.Type],
+                weight: 1,
+                fillOpacity: 0.1,
+                radius: 7
+            }).addTo(dryMassMovementLayer)
         } else if (disaster.Type == 'Mass movement (wet)') {
-            L.marker([disaster.Lat, disaster.Lng], {icon: icons[disaster.Type]}).addTo(wetMassMovementLayer)
+            L.circleMarker([disaster.Lat, disaster.Lng], {
+                color: colors[disaster.Type],
+                weight: 1,
+                fillOpacity: 0.1,
+                radius: 7
+            }).addTo(wetMassMovementLayer)
         } else if (disaster.Type == 'Storm') {
-            L.marker([disaster.Lat, disaster.Lng], {icon: icons[disaster.Type]}).addTo(stormLayer)
+            L.circleMarker([disaster.Lat, disaster.Lng], {
+                color: colors[disaster.Type],
+                weight: 1,
+                fillOpacity: 0.1,
+                radius: 7
+            }).addTo(stormLayer)
         } else if (disaster.Type == 'Volcanic activity') {
-            L.marker([disaster.Lat, disaster.Lng], {icon: icons[disaster.Type]}).addTo(volcanoLayer)
+            L.circleMarker([disaster.Lat, disaster.Lng], {
+                color: colors[disaster.Type],
+                weight: 1,
+                fillOpacity: 0.1,
+                radius: 7
+            }).addTo(volcanoLayer)
         }
     });
-
-    console.log(droughtLayer)
     
     // create overlay object containing all layers
     let overlayLayers = {
@@ -88,8 +124,8 @@ function addMap(overlayLayers) {
     };
 
     let allDisastersMap = L.map('map', {
-        center: [0, 0],
-        zoom: 1,
+        center: [10, 0],
+        zoom: 3,
         layers: [street]
     });
 
