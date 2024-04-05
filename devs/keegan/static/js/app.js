@@ -107,10 +107,22 @@ function initLayersAndMarkers(disasterData) {
         'Volcanic Activity': volcanoLayer
     };
 
-    addMap(overlayLayers);
+    const legend = L.control({position:'bottomright'});
+
+    legend.onAdd = function() {
+      let div = L.DomUtil.create('div', 'legend');
+      div.innerHTML = `<h4>Disaster Types</h4>`;
+      
+      for (let type in colors) {
+        div.innerHTML += `<i style="background: ${colors[type]};"></i><span class="legend-span">${type}</span><br>`
+      }
+      return div;
+    };
+
+    addMap(overlayLayers, legend);
 };
 
-function addMap(overlayLayers) {
+function addMap(overlayLayers, legend) {
     // let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     // }); 
@@ -137,6 +149,8 @@ function addMap(overlayLayers) {
         zoom: 3,
         layers: [streetDark]
     });
+
+    legend.addTo(allDisastersMap)
 
     L.control.layers(baseMaps, overlayLayers, {
         collapsed: false,
