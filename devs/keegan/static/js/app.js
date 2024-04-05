@@ -1,6 +1,3 @@
-// no drought or xtreme temp data
-// const url = 'https://keegandavis.github.io/disaster-data-json/emdat_no_drought_or_xtremetemps.json';
-
 // all data
 const url = 'https://keegandavis.github.io/disaster-data-json/emdat_cleaned.json';
 
@@ -12,6 +9,10 @@ d3.json(url).then(disaster => {
 });
 
 function initLayersAndMarkers(disasterData) {
+    /*
+    create layer groups for each disaster type, loop through the disaster data and add the circle marker to the correct layer group with the color corresponding to the disaster.
+    Create a legend and pass both the legend and the layer groups to the addMap() function
+    */
     // initiate layer groups for each disaster type
     let droughtLayer = L.layerGroup();
     let earthquakeLayer = L.layerGroup();
@@ -107,8 +108,10 @@ function initLayersAndMarkers(disasterData) {
         'Volcanic Activity': volcanoLayer
     };
 
+    // initiate legend
     const legend = L.control({position:'bottomright'});
 
+    // add a div with class legend then add html to the div with a heading, icons with the color corresponding to the color markers, and the corresponding disaster type
     legend.onAdd = function() {
       let div = L.DomUtil.create('div', 'legend');
       div.innerHTML = `<h4>Disaster Types</h4>`;
@@ -123,10 +126,10 @@ function initLayersAndMarkers(disasterData) {
 };
 
 function addMap(overlayLayers, legend) {
-    // let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    // }); 
-
+    /*
+    add the tile layers w/ the maps. create a layer object for the maps and a layer object for the disaster layer groups. initialize the map and add the layers and the 
+    legend to the map
+    */
     let streetDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
     });
@@ -134,10 +137,6 @@ function addMap(overlayLayers, legend) {
     let street = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
     });
-
-    // let topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-    //     attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-    // });
 
     let baseMaps = {
         'Dark Map': streetDark,
