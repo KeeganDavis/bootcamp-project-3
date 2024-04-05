@@ -3,9 +3,10 @@ const url = 'https://keegandavis.github.io/disaster-data-json/emdat_cleaned.json
 
 d3.json(url).then(disaster => {
     // store array of disasters
-    let disastersMapData = disaster
+    let disastersMapData = disaster;
     // function call with array to add layers and markers
-    initLayersAndMarkers(disastersMapData)
+    initLayersAndMarkers(disastersMapData);
+    addBar(disastersMapData);
 });
 
 function initLayersAndMarkers(disasterData) {
@@ -130,33 +131,87 @@ function addMap(overlayLayers, legend) {
     add the tile layers w/ the maps. create a layer object for the maps and a layer object for the disaster layer groups. initialize the map and add the layers and the 
     legend to the map
     */
+
+    // create street map layers
     let streetDarkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
     });
-
     let streetLightLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
     });
 
+    // create object for map tile layers
     let disasterMapsTileLayers = {
         'Dark Map': streetDarkLayer,
         Map: streetLightLayer
     };
 
+    // create map
     let allDisastersMap = L.map('allDisastersMap', {
         center: [10, 0],
         zoom: 3,
         layers: [streetDarkLayer]
     });
 
+    // add legend to map
     legend.addTo(allDisastersMap)
 
+    // create layer control w/ world maps and disaster layers
     L.control.layers(disasterMapsTileLayers, overlayLayers, {
         collapsed: false,
         sortLayers: true
     }).addTo(allDisastersMap);
 };
 
-function addBar() {
+function addBar(disasterData) {
+
+    let disasterBarCounts ={
+        Drought: 0,
+        Earthquake: 0,
+        'Extreme temperature': 0,
+        Flood: 0,
+        'Mass movement (dry)': 0,
+        'Mass movement (wet)': 0,
+        Storm: 0,
+        'Volcanic activity': 0,
+        Total: 0
+    };
+
+    disasterData.forEach(disaster => {
+        disasterBarCounts[disaster.Type] += 1;
+        disasterBarCounts.Total += 1;
+    });
+    
+    let barOptions = {
+          series: [{
+          data: Object.values(disasterBarCounts).slice(0, -1)
+        }],
+          chart: {
+          type: 'bar',
+          height: 'auto'
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+            distributed: true,
+            columnWidth: '70%'
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        xaxis: {
+          categories: Object.keys(disasterBarCounts).slice(0, -1),
+          max: 27500
+        },
+        colors: ['#ffee65', '#fdcce5', '#fd7f6f', '#7eb0d5', '#bd7ebe', '#8bd3c7', '#b2e061', '#ffb55a'],
+        // chart: {
+        //     // background: ''
+        // }
+        };
+    
+    let allDisastersBarChart = new ApexCharts(document.querySelector('#visual2'), barOptions);
+    allDisastersBarChart.render();
     
 };
