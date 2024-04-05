@@ -22,6 +22,7 @@ function initLayersAndMarkers(disasterData) {
     let stormLayer = L.layerGroup();
     let volcanoLayer = L.layerGroup();
 
+    // colors object to be referenced when adding colors to circle markers
     let colors = {
         'Drought': '#ffee65',
         'Earthquake': '#fdcce5',
@@ -110,26 +111,35 @@ function initLayersAndMarkers(disasterData) {
 };
 
 function addMap(overlayLayers) {
-    let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }); 
+    // let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    // }); 
 
-    let topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    let streetDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
     });
 
+    let street = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
+    });
+
+    // let topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    //     attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    // });
+
     let baseMaps = {
-        Street: street,
-        Topography: topo
+        'Dark Map': streetDark,
+        Map: street
     };
 
-    let allDisastersMap = L.map('map', {
+    let allDisastersMap = L.map('allDisastersMap', {
         center: [10, 0],
         zoom: 3,
-        layers: [street]
+        layers: [streetDark]
     });
 
     L.control.layers(baseMaps, overlayLayers, {
-        collapsed: false
+        collapsed: false,
+        sortLayers: true
     }).addTo(allDisastersMap);
 };
