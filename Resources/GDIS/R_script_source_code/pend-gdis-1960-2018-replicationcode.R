@@ -18,16 +18,39 @@ library(cowplot)
 
 ## ____________________________________________________________________________________ ##
 ## Set working directory
-setwd("")
+setwd("C:/Users/rttay/Documents/Education/UTA_Data_Bootcamp/Homeworks_and_Projects/Project_3/bootcamp-project-3/Resources/GDIS/Disaster_Location_Centroids")
 
 
 ## ____________________________________________________________________________________ ##
 ## Load GDIS data (rdata or other format)
+
+#Riley
+data <- read.csv("gdis-locations.csv")
+save(data, file = "GDIS_disasterlocations.rdata")
+
+#\Riley
+
+
 load("GDIS_disasterlocations.rdata")
 
+setwd("C:/Users/rttay/Documents/Education/UTA_Data_Bootcamp/Homeworks_and_Projects/Project_3/bootcamp-project-3/Resources/EM-DAT")
+
+
+#Riley
+data <- read.csv("emdat_data.csv")
+save(data, file = "emdat_data.rdata")
+
+#\Riley
 
 ## Load EMDAT data
-load("")
+load("emdat_data.rdata")
+
+
+
+setwd("C:/Users/rttay/Documents/Education/UTA_Data_Bootcamp/Homeworks_and_Projects/Project_3/bootcamp-project-3/devs/riley/temp_workspace")
+
+
+
 
 ## for versions of EM-DAT data that added the ISO3 country code to the disasterno, use this code to remove the ISO3 code to enable merge with GDIS
 ## rename the variable "Dis No" from EMDAT and remove the three-letter ISO from the disasterno identifier
