@@ -5,8 +5,9 @@ d3.json(url).then(disaster => {
     // store array of disasters
     let disastersMapData = disaster;
     // function call with array to add layers and markers
-    initLayersAndMarkers(disastersMapData);
+    // initLayersAndMarkers(disastersMapData);
     addBar(disastersMapData);
+    counter(disastersMapData);
 });
 
 function initLayersAndMarkers(disasterData) {
@@ -182,20 +183,29 @@ function addBar(disasterData) {
         disasterBarCounts.Total += 1;
     });
     
-    let barOptions = {
+    let allDisastersSingleBarOptions = {
           series: [{
           data: Object.values(disasterBarCounts).slice(0, -1)
         }],
           chart: {
           type: 'bar',
-          height: 'auto'
+          height: '800px',
+        },
+        title: {
+            text: 'Disaster Types',
+            align: 'middle',
+            style: {
+                fontSize: '32px'
+            }
         },
         plotOptions: {
           bar: {
-            borderRadius: 4,
             horizontal: true,
             distributed: true,
-            columnWidth: '70%'
+            columnWidth: '10%',
+            dataLabels: {
+                position: 'top'
+            }
           }
         },
         dataLabels: {
@@ -203,15 +213,177 @@ function addBar(disasterData) {
         },
         xaxis: {
           categories: Object.keys(disasterBarCounts).slice(0, -1),
-          max: 27500
+          max: 30000
         },
         colors: ['#ffee65', '#fdcce5', '#fd7f6f', '#7eb0d5', '#bd7ebe', '#8bd3c7', '#b2e061', '#ffb55a'],
-        // chart: {
-        //     // background: ''
-        // }
+        states: {
+            hover: {
+                filter: {
+                    type: 'none',
+                }
+            }
+        }
         };
     
-    let allDisastersBarChart = new ApexCharts(document.querySelector('#visual2'), barOptions);
+    let allDisastersBarChart = new ApexCharts(document.querySelector('#visual2'), allDisastersSingleBarOptions);
     allDisastersBarChart.render();
+
+    let stackedBarOptions = {
+          series: [{
+          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+        }],
+          chart: {
+          type: 'bar',
+          height: 350
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        xaxis: {
+          categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
+            'United States', 'China', 'Germany'
+          ],
+        }
+        };
+
+        // let allDisastersStackedBarChart = 
     
+};
+
+
+function counter(disasterData) {
+    // array used to split the disaster data region Americas into North America and South America
+    const northAmericanCountries = [
+        "Antigua and Barbuda", "Bahamas", "Barbados", "Belize", "Canada", "Costa Rica", "Cuba", "Dominica", 
+        "Dominican Republic", "El Salvador", "Grenada", "Guatemala", "Haiti", "Honduras", "Jamaica", "Mexico", 
+        "Nicaragua", "Panama", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", 
+        "Trinidad and Tobago", "United States of America"
+    ];
+
+    // array of objects containing the counts for each disaster type and the continent on which it occurred
+    let newDisasterBarCounts =[
+        {
+            Continent: 'Africa',
+            Drought: 0,
+            Earthquake: 0,
+            'Extreme temperature': 0,
+            Flood: 0,
+            'Mass movement (dry)': 0,
+            'Mass movement (wet)': 0,
+            Storm: 0,
+            'Volcanic activity': 0,
+            Total: 0
+        },
+        {
+            Continent: 'Asia',
+            Drought: 0,
+            Earthquake: 0,
+            'Extreme temperature': 0,
+            Flood: 0,
+            'Mass movement (dry)': 0,
+            'Mass movement (wet)': 0,
+            Storm: 0,
+            'Volcanic activity': 0,
+            Total: 0
+        },
+        {
+            Continent: 'Europe',
+            Drought: 0,
+            Earthquake: 0,
+            'Extreme temperature': 0,
+            Flood: 0,
+            'Mass movement (dry)': 0,
+            'Mass movement (wet)': 0,
+            Storm: 0,
+            'Volcanic activity': 0,
+            Total: 0
+            },
+        {
+            Continent: 'North America',
+            Drought: 0,
+            Earthquake: 0,
+            'Extreme temperature': 0,
+            Flood: 0,
+            'Mass movement (dry)': 0,
+            'Mass movement (wet)': 0,
+            Storm: 0,
+            'Volcanic activity': 0,
+            Total: 0
+        },
+        {
+            Continent: 'Oceania',
+            Drought: 0,
+            Earthquake: 0,
+            'Extreme temperature': 0,
+            Flood: 0,
+            'Mass movement (dry)': 0,
+            'Mass movement (wet)': 0,
+            Storm: 0,
+            'Volcanic activity': 0,
+            Total: 0
+            },
+        {
+            Continent: 'South America',
+            Drought: 0,
+            Earthquake: 0,
+            'Extreme temperature': 0,
+            Flood: 0,
+            'Mass movement (dry)': 0,
+            'Mass movement (wet)': 0,
+            Storm: 0,
+            'Volcanic activity': 0,
+            Total: 0
+        }      
+];
+    // double loop to go through each disaster in the JSON and add the disaster type to the correct continent's count
+    disasterData.forEach(disaster => {
+        newDisasterBarCounts.forEach(continent => {
+            // check to see if the country is in North America
+            if (northAmericanCountries.includes(disaster.Country)) {
+                // add to North America object counts
+                if (continent.Continent == 'North America') {
+                    continent[disaster.Type] += 1
+                    continent.Total += 1
+                }
+                // check if country is in Americas region and doesn't exist in North American countries array
+            } else if (disaster.Region == 'Americas') {
+                // add to South America object counts
+                if (continent.Continent == 'South America') {
+                    continent[disaster.Type] += 1
+                    continent.Total += 1
+                }
+            } else {
+                // the rest of the data has the correct region to correspond to the continent
+                if (continent.Continent == disaster.Region) {
+                    // add 1 to the corresponding disaster type in the corresponding continent object
+                    continent[disaster.Type] += 1
+                    continent.Total += 1
+                }
+            }
+        })
+    })
+
+    console.log(newDisasterBarCounts);
+
+    // create arrays for bar graph data by slicing to get rid of continent and total values
+    let africaCounts = Object.values(newDisasterBarCounts[0]).slice(1, 9);
+    let asiaCounts = Object.values(newDisasterBarCounts[1]).slice(1, 9);
+    let europeCounts = Object.values(newDisasterBarCounts[2]).slice(1, 9);
+    let naCounts = Object.values(newDisasterBarCounts[3]).slice(1, 9);
+    let oceaniaCounts = Object.values(newDisasterBarCounts[4]).slice(1, 9);
+    let saCounts = Object.values(newDisasterBarCounts[5]).slice(1, 9);
+    
+    // get all continents into an array to be used for labels in the stacked bar graph
+    let continents = [];
+    newDisasterBarCounts.forEach(obj => {
+        continents.push(obj.Continent)
+    });
+    console.log(continents)
+
 };
