@@ -3,15 +3,13 @@ body {
   margin: 0;
 }
 
-#allDisastersMap,
-body,
-html {
+#visual1-container, #visual1-row, #visual1-col, body, html {
   height: 100%;
   width: 100%;
 }
 
-.leaflet-container {
-  height: 100% !important;
+#allDisastersMap {
+  height: 100%;
 }
 
 .legend {
@@ -42,4 +40,12 @@ html {
 
 h5 {
   text-align: center;
+}
+
+#header {
+  background-color: blueviolet;
+}
+
+#visual2-container {
+  margin-top: 150px;
 }
