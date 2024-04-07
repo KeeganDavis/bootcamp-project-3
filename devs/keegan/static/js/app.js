@@ -7,7 +7,7 @@ d3.json(url).then(disaster => {
     // function call with array to add layers and markers
     // initLayersAndMarkers(disastersMapData);
     addBar(disastersMapData);
-    counter(disastersMapData);
+    stackedBarChart(disastersMapData);
 });
 
 function initLayersAndMarkers(disasterData) {
@@ -227,37 +227,11 @@ function addBar(disasterData) {
     
     let allDisastersBarChart = new ApexCharts(document.querySelector('#visual2'), allDisastersSingleBarOptions);
     allDisastersBarChart.render();
-
-    let stackedBarOptions = {
-          series: [{
-          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
-        }],
-          chart: {
-          type: 'bar',
-          height: 350
-        },
-        plotOptions: {
-          bar: {
-            borderRadius: 4,
-            horizontal: true,
-          }
-        },
-        dataLabels: {
-          enabled: false
-        },
-        xaxis: {
-          categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-            'United States', 'China', 'Germany'
-          ],
-        }
-        };
-
-        // let allDisastersStackedBarChart = 
     
 };
 
 
-function counter(disasterData) {
+function stackedBarChart(disasterData) {
     // array used to split the disaster data region Americas into North America and South America
     const northAmericanCountries = [
         "Antigua and Barbuda", "Bahamas", "Barbados", "Belize", "Canada", "Costa Rica", "Cuba", "Dominica", 
@@ -372,18 +346,114 @@ function counter(disasterData) {
     console.log(newDisasterBarCounts);
 
     // create arrays for bar graph data by slicing to get rid of continent and total values
-    let africaCounts = Object.values(newDisasterBarCounts[0]).slice(1, 9);
-    let asiaCounts = Object.values(newDisasterBarCounts[1]).slice(1, 9);
-    let europeCounts = Object.values(newDisasterBarCounts[2]).slice(1, 9);
-    let naCounts = Object.values(newDisasterBarCounts[3]).slice(1, 9);
-    let oceaniaCounts = Object.values(newDisasterBarCounts[4]).slice(1, 9);
-    let saCounts = Object.values(newDisasterBarCounts[5]).slice(1, 9);
+    let droughtCounts = [];
+    let earthquakeCounts = [];
+    let extremeTempCounts = [];
+    let floodCounts = [];
+    let dryMassCounts = [];
+    let wetMassCounts = [];
+    let stormCounts = [];
+    let volcanoCounts = [];
     
-    // get all continents into an array to be used for labels in the stacked bar graph
+    // get all continents and all counts per disaster into the corresponding array to be used for labels in the stacked bar graph
     let continents = [];
     newDisasterBarCounts.forEach(obj => {
-        continents.push(obj.Continent)
+        continents.push(obj.Continent);
+        droughtCounts.push(obj.Drought);
+        earthquakeCounts.push(obj.Earthquake);
+        extremeTempCounts.push(obj['Extreme temperature']);
+        floodCounts.push(obj.Flood);
+        dryMassCounts.push(obj['Mass movement (dry)']);
+        wetMassCounts.push(obj['Mass movement (wet)']);
+        stormCounts.push(obj.Storm);
+        volcanoCounts.push(obj['Volcanic activity']);
     });
-    console.log(continents)
+    // get names of disasters in alphabetical order into an array
+    let disastersArr = Object.keys(newDisasterBarCounts[0]).slice(1, 9);
 
+    // setting apex charts options for stacked bar chart
+    let stackedBarOptions = {
+          series: [{
+          name: disastersArr[0],
+          data: droughtCounts
+        }, {
+          name: disastersArr[1],
+          data: earthquakeCounts
+        }, {
+          name: disastersArr[2],
+          data: extremeTempCounts
+        }, {
+          name: disastersArr[3],
+          data: floodCounts
+        }, {
+          name: disastersArr[4],
+          data: dryMassCounts
+        }, {
+          name: disastersArr[5],
+          data: wetMassCounts
+        }, {
+          name: disastersArr[6],
+          data: stormCounts
+        }, {
+          name: disastersArr[7],
+          data: volcanoCounts
+        }],
+          chart: {
+          type: 'bar',
+          height: 350,
+          stacked: true,
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true,
+            columnWidth: '100%',
+            barHeight: '80%',
+            dataLabels: {
+              total: {
+                enabled: false,
+                offsetX: 0,
+                style: {
+                  fontSize: '13px',
+                  fontWeight: 900
+                }
+              }
+            }
+          },
+        },
+        stroke: {
+          width: 1,
+          colors: ['#fff']
+        },
+        title: {
+          text: 'Disaster Types Per Continent'
+        },
+        xaxis: {
+          categories: continents,
+        },
+        yaxis: {
+          title: {
+            text: undefined
+          },
+        },
+        tooltip: {
+          y: {
+            formatter: function (val) {
+              return val
+            }
+          }
+        },
+        fill: {
+          opacity: 1
+        },
+        legend: {
+          position: 'top',
+          horizontalAlign: 'left',
+          offsetX: 40
+        },
+        colors: ['#ffee65', '#fdcce5', '#fd7f6f', '#7eb0d5', '#bd7ebe', '#8bd3c7', '#b2e061', '#ffb55a']
+        };
+
+        // rendering stacked bar chart in html
+        var stackedBarChartHTML = new ApexCharts(document.querySelector("#visual3"), stackedBarOptions);
+        stackedBarChartHTML.render();
 };
