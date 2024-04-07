@@ -3,7 +3,7 @@ body {
   margin: 0;
 }
 
-#visual1-container, #visual1-row, #visual1-col, body, html {
+#vizContainer, #vizRow, body, html {
   height: 100%;
   width: 100%;
 }
@@ -44,8 +44,4 @@ h5 {
 
 #header {
   background-color: blueviolet;
-}
-
-#visual2-container {
-  margin-top: 150px;
 }
