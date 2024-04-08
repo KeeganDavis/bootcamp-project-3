@@ -33,8 +33,9 @@ function newSelection(vizType, disastersMapData) {
         div.html(
           ` <div class="p-2" id="visual1-col">
                 <h2 class="text-center">Map of All Natural Disasters Filtered by Disaster Type</h2><hr>
-                <footer>*Disasters only counted when the number of affected people was more than 10</footer>
-                <div id="allDisastersMap" style="border-radius: 15px; border: 3px solid red" margin="5px"></div> 
+                <div id="allDisastersMap" style="border-radius: 15px; border: 3px solid red" margin="5px"></div>
+                <footer>*Disasters only counted when one of the following criteria are met: 10 fatalities,
+                100 affected people, a declaration of a state of emergency, or a call for international assistance.</footer> 
             </div> `
         );
        initLayersAndMarkers(disastersMapData); 

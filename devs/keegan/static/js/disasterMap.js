@@ -28,141 +28,21 @@ function initLayersAndMarkers(disasterData) {
     // loop through each disaster and add a marker to the layer that corresponds to the type of disaster
     disasterData.forEach(disaster => {
         if (disaster.Type == 'Drought') {
-            L.circleMarker([disaster.Lat, disaster.Lng], {
-                color: mapColors[disaster.Type],
-                weight: 1,
-                fillOpacity: 0.1,
-                radius: 7
-            }).addTo(droughtMapLayer).bindPopup(
-              `<h5>${disaster.Geolocation}</h5><hr>
-              <ul>
-                <li>Disaster Number: ${disaster['Disaster #']}</li>
-                <li>Disaster Type: ${disaster.Type}</li>
-                <li> Disaster Subtype: ${disaster.Subtype}</li>
-                <li>Start Month and Year: ${disaster.Month}-${disaster.Year}</li>
-                <li>Coordinates: [${disaster.Lat}, ${disaster.Lng}]</li>
-                ${disaster['Total Affected'] != null ? `<li>Total Affected: ${disaster['Total Affected']}</li>`: ''}
-              </ul>`
-            )
+            addMarkers(disaster, droughtMapLayer, mapColors)
         } else if (disaster.Type == 'Earthquake') {
-            L.circleMarker([disaster.Lat, disaster.Lng], {
-                color: mapColors[disaster.Type],
-                weight: 1,
-                fillOpacity: 0.1,
-                radius: 7
-            }).addTo(earthquakeMapLayer).bindPopup(
-              `<h5>${disaster.Geolocation}</h5><hr>
-              <ul>
-                <li>Disaster Number: ${disaster['Disaster #']}</li>
-                <li>Disaster Type: ${disaster.Type}</li>
-                <li> Disaster Subtype: ${disaster.Subtype}</li>
-                <li>Start Month and Year: ${disaster.Month}-${disaster.Year}</li>
-                <li>Coordinates: [${disaster.Lat}, ${disaster.Lng}]</li>
-                ${disaster['Total Affected'] != null ? `<li>Total Affected: ${disaster['Total Affected']}</li>`: ''}
-              </ul>`
-            )
+            addMarkers(disaster, earthquakeMapLayer, mapColors)
         } else if (disaster.Type == 'Extreme temperature') {
-            L.circleMarker([disaster.Lat, disaster.Lng], {
-                color: mapColors[disaster.Type],
-                weight: 1,
-                fillOpacity: 0.1,
-                radius: 7
-            }).addTo(extremeTempMapLayer).bindPopup(
-              `<h5>${disaster.Geolocation}</h5><hr>
-              <ul>
-                <li>Disaster Number: ${disaster['Disaster #']}</li>
-                <li>Disaster Type: ${disaster.Type}</li>
-                <li> Disaster Subtype: ${disaster.Subtype}</li>
-                <li>Start Month and Year: ${disaster.Month}-${disaster.Year}</li>
-                <li>Coordinates: [${disaster.Lat}, ${disaster.Lng}]</li>
-                ${disaster['Total Affected'] != null ? `<li>Total Affected: ${disaster['Total Affected']}</li>`: ''}
-              </ul>`
-            )
+            addMarkers(disaster, extremeTempMapLayer, mapColors)
         } else if (disaster.Type == 'Flood') {
-            L.circleMarker([disaster.Lat, disaster.Lng], {
-                color: mapColors[disaster.Type],
-                weight: 1,
-                fillOpacity: 0.1,
-                radius: 7
-            }).addTo(floodMapLayer).bindPopup(
-              `<h5>${disaster.Geolocation}</h5><hr>
-              <ul>
-                <li>Disaster Number: ${disaster['Disaster #']}</li>
-                <li>Disaster Type: ${disaster.Type}</li>
-                <li> Disaster Subtype: ${disaster.Subtype}</li>
-                <li>Start Month and Year: ${disaster.Month}-${disaster.Year}</li>
-                <li>Coordinates: [${disaster.Lat}, ${disaster.Lng}]</li>
-                ${disaster['Total Affected'] != null ? `<li>Total Affected: ${disaster['Total Affected']}</li>`: ''}
-              </ul>`
-            )
+            addMarkers(disaster, floodMapLayer, mapColors)
         } else if (disaster.Type == 'Mass movement (dry)') {
-            L.circleMarker([disaster.Lat, disaster.Lng], {
-                color: mapColors[disaster.Type],
-                weight: 1,
-                fillOpacity: 0.1,
-                radius: 7
-            }).addTo(dryMassMovementMapLayer).bindPopup(
-              `<h5>${disaster.Geolocation}</h5><hr>
-              <ul>
-                <li>Disaster Number: ${disaster['Disaster #']}</li>
-                <li>Disaster Type: ${disaster.Type}</li>
-                <li> Disaster Subtype: ${disaster.Subtype}</li>
-                <li>Start Month and Year: ${disaster.Month}-${disaster.Year}</li>
-                <li>Coordinates: [${disaster.Lat}, ${disaster.Lng}]</li>
-                ${disaster['Total Affected'] != null ? `<li>Total Affected: ${disaster['Total Affected']}</li>`: ''}
-              </ul>`
-            )
+            addMarkers(disaster, dryMassMovementMapLayer, mapColors)
         } else if (disaster.Type == 'Mass movement (wet)') {
-            L.circleMarker([disaster.Lat, disaster.Lng], {
-                color: mapColors[disaster.Type],
-                weight: 1,
-                fillOpacity: 0.1,
-                radius: 7
-            }).addTo(wetMassMovementMapLayer).bindPopup(
-              `<h5>${disaster.Geolocation}</h5><hr>
-              <ul>
-                <li>Disaster Number: ${disaster['Disaster #']}</li>
-                <li>Disaster Type: ${disaster.Type}</li>
-                <li> Disaster Subtype: ${disaster.Subtype}</li>
-                <li>Start Month and Year: ${disaster.Month}-${disaster.Year}</li>
-                <li>Coordinates: [${disaster.Lat}, ${disaster.Lng}]</li>
-                ${disaster['Total Affected'] != null ? `<li>Total Affected: ${disaster['Total Affected']}</li>`: ''}
-              </ul>`
-            )
+            addMarkers(disaster, wetMassMovementMapLayer, mapColors)
         } else if (disaster.Type == 'Storm') {
-            L.circleMarker([disaster.Lat, disaster.Lng], {
-                color: mapColors[disaster.Type],
-                weight: 1,
-                fillOpacity: 0.1,
-                radius: 7
-            }).addTo(stormMapLayer).bindPopup(
-              `<h5>${disaster.Geolocation}</h5><hr>
-              <ul>
-                <li>Disaster Number: ${disaster['Disaster #']}</li>
-                <li>Disaster Type: ${disaster.Type}</li>
-                <li> Disaster Subtype: ${disaster.Subtype}</li>
-                <li>Start Month and Year: ${disaster.Month}-${disaster.Year}</li>
-                <li>Coordinates: [${disaster.Lat}, ${disaster.Lng}]</li>
-                ${disaster['Total Affected'] != null ? `<li>Total Affected: ${disaster['Total Affected']}</li>`: ''}
-              </ul>`
-            )
+            addMarkers(disaster, stormMapLayer, mapColors)
         } else if (disaster.Type == 'Volcanic activity') {
-            L.circleMarker([disaster.Lat, disaster.Lng], {
-                color: mapColors[disaster.Type],
-                weight: 1,
-                fillOpacity: 0.1,
-                radius: 7
-            }).addTo(volcanoMapLayer).bindPopup(
-              `<h5>${disaster.Geolocation}</h5><hr>
-              <ul>
-                <li>Disaster Number: ${disaster['Disaster #']}</li>
-                <li>Disaster Type: ${disaster.Type}</li>
-                <li> Disaster Subtype: ${disaster.Subtype}</li>
-                <li>Start Month and Year: ${disaster.Month}-${disaster.Year}</li>
-                <li>Coordinates: [${disaster.Lat}, ${disaster.Lng}]</li>
-                ${disaster['Total Affected'] != null ? `<li>Total Affected: ${disaster['Total Affected']}</li>`: ''}
-              </ul>`
-            )
+            addMarkers(disaster, volcanoMapLayer, mapColors)
         }
     });
     
@@ -230,4 +110,23 @@ function addMap(overlayLayers, legend) {
         collapsed: false,
         sortLayers: true
     }).addTo(allDisastersMap);
+};
+
+function addMarkers(disaster, layer, mapColors) {
+  L.circleMarker([disaster.Lat, disaster.Lng], {
+                color: mapColors[disaster.Type],
+                weight: 1,
+                fillOpacity: 0.1,
+                radius: 7
+            }).addTo(layer).bindPopup(
+              `<h5>${disaster.Geolocation}</h5><hr>
+              <ul>
+                <li>Disaster Number: ${disaster['Disaster #']}</li>
+                <li>Disaster Type: ${disaster.Type}</li>
+                <li> Disaster Subtype: ${disaster.Subtype}</li>
+                <li>Start Month and Year: ${disaster.Month}-${disaster.Year}</li>
+                <li>Coordinates: [${disaster.Lat}, ${disaster.Lng}]</li>
+                ${disaster['Total Affected'] != null ? `<li>Total Affected: ${disaster['Total Affected']}</li>`: ''}
+              </ul>`
+            )
 };
