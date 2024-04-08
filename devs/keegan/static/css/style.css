@@ -50,7 +50,9 @@ h5 {
 }
 
 #header {
-  background-color: blueviolet;
+  background-image: radial-gradient(#c5ae96, #7f886e);
+  height: 200px;
+  width: 100%;
 }
 
 select {
