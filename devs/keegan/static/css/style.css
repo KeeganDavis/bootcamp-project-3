@@ -1,5 +1,5 @@
 :root {
-  --arrow-bg: rgba(255, 255, 255, 0.3);
+  --arrow-bg: rgba(12, 12, 12, 0.3);
   --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
   --option-bg: white;
   --select-bg: rgba(255, 255, 255, 0.2);
@@ -60,7 +60,7 @@ select {
   outline: 0;
   font: inherit;
   /* Personalize */
-  width: 20rem;
+  width: 15rem;
   padding: 1rem 4rem 1rem 1rem;
   background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
     linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
@@ -81,4 +81,8 @@ select {
     color: inherit;
     background-color: var(--option-bg);
   }
+}
+
+#vizContainer {
+  padding: 50px;
 }

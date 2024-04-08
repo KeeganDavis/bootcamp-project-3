@@ -165,7 +165,7 @@ function stackedBarChart(disasterData) {
         }],
           chart: {
           type: 'bar',
-          height: 350,
+          height: '600px',
           stacked: true,
         },
         plotOptions: {
@@ -173,36 +173,17 @@ function stackedBarChart(disasterData) {
             horizontal: true,
             columnWidth: '100%',
             barHeight: '80%',
-            dataLabels: {
-              total: {
-                enabled: false,
-                offsetX: 0,
-                style: {
-                  fontSize: '13px',
-                  fontWeight: 900
-                }
-              }
-            }
           },
-        },
-        stroke: {
-          width: 1,
-          colors: ['#fff']
         },
         title: {
           text: 'Disaster Types by Continent',
           align: 'middle',
           style: {
-              fontSize: '32px'
+              fontSize: '24px'
           }
         },
         xaxis: {
           categories: continents,
-        },
-        yaxis: {
-          title: {
-            text: undefined
-          },
         },
         tooltip: {
           y: {

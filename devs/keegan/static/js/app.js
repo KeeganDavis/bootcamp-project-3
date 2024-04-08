@@ -25,7 +25,7 @@ function newSelection(vizType, disastersMapData) {
           `<div class="p-2 col-md-10">
                 <div id="disasterTypesBar"></div>
             </div>
-            <div class="col-md-2">testing</div>`
+            <div class="col-md-2">text</div>`
         );
         addBar(disastersMapData);
       } else if (vizType == 'map') {
