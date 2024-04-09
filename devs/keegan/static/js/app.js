@@ -16,7 +16,7 @@ d3.json(url).then(disaster => {
 });
 
 function newSelection(vizType, disastersMapData) {
-      // select the div to update the html
+      // select the div under the header div to update the html
       let div = d3.select('#vizRow')
 
       if (vizType == 'bar') {

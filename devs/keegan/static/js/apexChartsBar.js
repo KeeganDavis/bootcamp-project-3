@@ -1,5 +1,6 @@
 function addBar(disasterData) {
 
+    // initiate disaster counts
     let disasterBarCounts ={
         Drought: 0,
         Earthquake: 0,
@@ -12,14 +13,17 @@ function addBar(disasterData) {
         Total: 0
     };
 
+    // loop through disaster data and add one to the corresponding disaster
     disasterData.forEach(disaster => {
         disasterBarCounts[disaster.Type] += 1;
         disasterBarCounts.Total += 1;
     });
     
+    // settings for apex charts
     let allDisastersSingleBarOptions = {
           series: [{
           name: 'Count',
+          // get the values for each disaster, but exclude the total
           data: Object.values(disasterBarCounts).slice(0, -1)
         }],
           chart: {
@@ -47,6 +51,7 @@ function addBar(disasterData) {
           enabled: false
         },
         xaxis: {
+          // get the keys to label the x-axis with the disaster types, but exclude total
           categories: Object.keys(disasterBarCounts).slice(0, -1),
           max: 30000
         },
@@ -60,6 +65,7 @@ function addBar(disasterData) {
         }
         };
     
+    // apex charts code for adding to the html
     let allDisastersBarChart = new ApexCharts(document.querySelector('#disasterTypesBar'), allDisastersSingleBarOptions);
     allDisastersBarChart.render();
     

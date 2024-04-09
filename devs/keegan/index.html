@@ -46,6 +46,7 @@
         </div>
     </div>
 
+    <!-- dropdown selection menu with different visualizations -->
         <select id="selectViz">
             <option value="map">Map</option>
             <option value="bar">Bar</option>
@@ -54,6 +55,7 @@
             <option value="stackedBar">Stacked Bar</option>
         </select>
 
+        <!-- div to hold our visualizations that is injected with the correct visualizations and html when the selection value changes -->
     <div class="container-fluid" id="vizContainer"">
         <div class="row" id="vizRow">
 
@@ -62,6 +64,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
     <!-- Our JS -->
     <script src="static/js/disasterMap.js"></script>
     <script src="static/js/apexChartsBar.js"></script>   

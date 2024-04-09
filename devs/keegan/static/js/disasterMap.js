@@ -95,6 +95,7 @@ function addMap(overlayLayers, legend) {
         Map: streetLightLayer
     };
 
+    // create equator layer, create the equator line and add to the layer, then add the layer to the overlayLayers object
     let equatorLayer = L.layerGroup();
     let line = [[0, -180], [0, 180]];
     L.polyline(line, {
@@ -104,6 +105,7 @@ function addMap(overlayLayers, legend) {
     }).addTo(equatorLayer);
     overlayLayers.Equator = equatorLayer;
 
+    // create layer for tectonic plates, call the function to create the lines of the tectonic plates, and then add the layer to the overlayLayers object
     let tectonicLayer = L.layerGroup();
     addTectonicPlates(tectonicLayer);
     overlayLayers['Tectonic Plates'] = tectonicLayer;
@@ -126,6 +128,10 @@ function addMap(overlayLayers, legend) {
 };
 
 function addMarkers(disaster, layer, mapColors) {
+    /*
+    adds the markers to the layer that corresponds to the disaster type along with the lat and lng. add a popup to the circle with the geolocation, disaster number, type,
+    subtype, start month and year, coordinates, and total number affected if the value is not null
+    */
   L.circleMarker([disaster.Lat, disaster.Lng], {
                 color: mapColors[disaster.Type],
                 weight: 1,
@@ -145,6 +151,9 @@ function addMarkers(disaster, layer, mapColors) {
 };
 
 function addTectonicPlates(layer) {
+    /*
+    fetch geojson data of tectonic plates and add the coordinates to the layer passed to the function
+    */
     const tectonicURL = 'https://keegandavis.github.io/disaster-data-json/tectonic_plates_geojson.json';
 
     d3.json(tectonicURL).then(data => {
