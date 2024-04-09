@@ -95,20 +95,33 @@ function addMap(overlayLayers, legend) {
         Map: streetLightLayer
     };
 
+    let equatorLayer = L.layerGroup();
+    let line = [[0, -180], [0, 180]];
+    L.polyline(line, {
+        color: 'red',
+        fillOpacity: 1,
+        weight: 1
+    }).addTo(equatorLayer);
+    overlayLayers.Equator = equatorLayer;
+
+    let tectonicLayer = L.layerGroup();
+    addTectonicPlates(tectonicLayer);
+    overlayLayers['Tectonic Plates'] = tectonicLayer;
+
     // create map
     let allDisastersMap = L.map('allDisastersMap', {
         center: [10, 0],
-        zoom: 2,
+        zoom: 3,
         layers: [streetDarkLayer]
     });
 
     // add legend to map
-    legend.addTo(allDisastersMap)
+    legend.addTo(allDisastersMap);
 
     // create layer control w/ world maps and disaster layers
     L.control.layers(disasterMapsTileLayers, overlayLayers, {
         collapsed: false,
-        sortLayers: true
+        sortLayers: false
     }).addTo(allDisastersMap);
 };
 
@@ -128,5 +141,21 @@ function addMarkers(disaster, layer, mapColors) {
                 <li>Coordinates: [${disaster.Lat}, ${disaster.Lng}]</li>
                 ${disaster['Total Affected'] != null ? `<li>Total Affected: ${disaster['Total Affected']}</li>`: ''}
               </ul>`
-            )
+            );
+};
+
+function addTectonicPlates(layer) {
+    const tectonicURL = 'https://keegandavis.github.io/disaster-data-json/tectonic_plates_geojson.json';
+
+    d3.json(tectonicURL).then(data => {
+        L.geoJSON(data, {
+            style: function() {
+                return {
+                    color: 'red',
+                    fillOpacity: 1,
+                    weight: 1
+                }
+            }
+        }).addTo(layer);
+    });
 };
