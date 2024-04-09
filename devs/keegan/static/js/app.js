@@ -45,7 +45,7 @@ function newSelection(vizType, disastersMapData) {
         );
        initLayersAndMarkers(disastersMapData); 
       } else if (vizType == 'timeLine') {
-        // if the value of the selection is stackedBar, update the html with the correct tags and attributes for the stacked bar graph to be displayed when the function is called
+        // if the value of the selection is byRegion, update the html with the correct tags and attributes for the bokeh line graph
         div.html(
           ` <div class="d-flex justify-content-center">
               <div id="d58dbea3-8582-4fdc-9498-2ec53799e762" data-root-id="p1723" style="display: contents;"></div>
@@ -57,6 +57,7 @@ function newSelection(vizType, disastersMapData) {
         )
         cl_plot1();
       } else if (vizType == 'byRegion') {
+        // if the value of the selection is byRegion, update the html with the correct tags and attributes for the bokeh bar graph
         div.html(
           ` <div class="d-flex justify-content-center">
               <div id="ba98183c-6e83-4be8-ad89-25f5c2009843" data-root-id="p1870" style="display: contents;"></div>
@@ -64,6 +65,15 @@ function newSelection(vizType, disastersMapData) {
             <p style="margin-top: -125px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>`
         )
         cl_plot2();
+      } else if (vizType == 'stackedBar') {
+        // if the value of the selection is stackedBar, update the html with the correct tags and attributes for the stacked bar graph to be displayed when the function is called
+        div.html(
+          `<div class="col-lg-10">
+                <div id="disastersByContinent" class="visuals"></div>
+            </div>
+            <div class="col-lg-2">text</div>`
+        );
+        stackedBarChart(disastersMapData);
       }
 
     }
