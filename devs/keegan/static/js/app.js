@@ -48,7 +48,7 @@ function newSelection(vizType, disastersMapData) {
         // if the value of the selection is stackedBar, update the html with the correct tags and attributes for the stacked bar graph to be displayed when the function is called
         div.html(
           ` <div class="d-flex justify-content-center">
-              <div id="d4f31d05-c7ac-4b36-87c3-c78fa2cb5cb9" data-root-id="p1127" style="display: contents;"></div>
+              <div id="d58dbea3-8582-4fdc-9498-2ec53799e762" data-root-id="p1723" style="display: contents;"></div>
             </div>
             <p style="margin-top: -125px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -59,7 +59,7 @@ function newSelection(vizType, disastersMapData) {
       } else if (vizType == 'byRegion') {
         div.html(
           ` <div class="d-flex justify-content-center">
-              <div id="e17c7ed2-0692-4c9e-b205-c2d57b1ac742" data-root-id="p1274" style="display: contents;"></div>
+              <div id="ba98183c-6e83-4be8-ad89-25f5c2009843" data-root-id="p1870" style="display: contents;"></div>
             </div>
             <p style="margin-top: -125px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>`
         )
