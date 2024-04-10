@@ -50,7 +50,7 @@ function newSelection(vizType, disastersMapData) {
           ` <div class="d-flex justify-content-center">
               <div id="d58dbea3-8582-4fdc-9498-2ec53799e762" data-root-id="p1723" style="display: contents;"></div>
             </div>
-            <p style="margin-top: -125px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            <p style="margin-top: -150px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.text</p>`
@@ -62,18 +62,27 @@ function newSelection(vizType, disastersMapData) {
           ` <div class="d-flex justify-content-center">
               <div id="ba98183c-6e83-4be8-ad89-25f5c2009843" data-root-id="p1870" style="display: contents;"></div>
             </div>
-            <p style="margin-top: -125px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>`
+            <p style="margin-top: -145px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>`
         )
         cl_plot2();
-      } else if (vizType == 'stackedBar') {
-        // if the value of the selection is stackedBar, update the html with the correct tags and attributes for the stacked bar graph to be displayed when the function is called
+      } else if (vizType == 'home') {
         div.html(
-          `<div class="col-lg-10">
-                <div id="disastersByContinent" class="visuals"></div>
-            </div>
-            <div class="col-lg-2">text</div>`
-        );
-        stackedBarChart(disastersMapData);
+        ` <div class="p-2 home">
+                <h2 class="text-center">Natural Disaster Analysis</h2><hr>
+                <h4>Subtitle:</h4><br>
+                <p style="text-indent: 40px;">This is an analysis of the <a href="https://public.emdat.be/">EM-DAT International Disaster Database</a> after merging the dataset 
+                with the 'CSV-Disaster Location Centroids' file from the <a href="https://sedac.ciesin.columbia.edu/data/set/pend-gdis-1960-2018/data-download">
+                Socioeconomic Data and Applications Center Geocoded Disasters Dataset (GDIS), v1</a>. The EM-DAT database contained many null values for the latitude an longitude, so 
+                the GDIS dataset was used to fill in the gaps. In terms of ethical considerations, both datasets are freely available for non-commercial use upon registration for a 
+                complimentary account. Importantly, these datasets do not contain any personal information about individuals affected by the natural disasters, ensuring privacy 
+                concerns are adequately addressed. Additionally, since the disaster data is publicly accessible, no further ethical considerations were necessary for its utilization.
+                </p>
+                <h4>Subtitle:</h4><br>
+                <p style="text-indent: 40px;">This webpage analyzes 71,634 natural disasters through the use of visualizations to see if disasters follow a predictable pattern,
+                impact certain continents more than others, and if disasters affect locations </p>
+                <p>To get started, use the dropdown menu in the top left of the page under the header</p>
+          </div> `
+        )
       }
 
     }
