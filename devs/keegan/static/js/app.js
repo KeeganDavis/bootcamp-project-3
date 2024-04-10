@@ -48,7 +48,7 @@ function newSelection(vizType, disastersMapData) {
         // if the value of the selection is byRegion, update the html with the correct tags and attributes for the bokeh line graph
         div.html(
           ` <div class="d-flex justify-content-center">
-              <div id="d58dbea3-8582-4fdc-9498-2ec53799e762" data-root-id="p1723" style="display: contents;"></div>
+              <div id="e1758858-1708-4e8f-b375-62eaf71ce488" data-root-id="p1001" style="display: contents;"></div>
             </div>
             <p style="margin-top: -150px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -60,7 +60,7 @@ function newSelection(vizType, disastersMapData) {
         // if the value of the selection is byRegion, update the html with the correct tags and attributes for the bokeh bar graph
         div.html(
           ` <div class="d-flex justify-content-center">
-              <div id="ba98183c-6e83-4be8-ad89-25f5c2009843" data-root-id="p1870" style="display: contents;"></div>
+              <div id="ef6734e7-9e39-48ce-9c29-f953e4dac237" data-root-id="p1148" style="display: contents;"></div>
             </div>
             <p style="margin-top: -145px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>`
         )
