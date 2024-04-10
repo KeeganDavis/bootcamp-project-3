@@ -36,8 +36,8 @@ function newSelection(vizType, disastersMapData) {
       } else if (vizType == 'map') {
         // if the value of the selection is map, update the html with the correct tags and attributes for the map to be displayed when the function is called
         div.html(
-          ` <div class="p-2">
-                <h2 class="text-center">Map of All Natural Disasters Filtered by Disaster Type</h2><hr>
+          ` <div style="margin-top: -35px;">
+                <h2 class="text-center">Map of All Natural Disasters Filtered by Disaster Type</h2>
                 <div id="allDisastersMap" style="border-radius: 15px; border: 5px solid #a7b39b" margin="5px"></div>
                 <footer>*Disasters only counted when one of the following criteria are met: 10 fatalities,
                 100 affected people, a declaration of a state of emergency, or a call for international assistance.</footer> 
