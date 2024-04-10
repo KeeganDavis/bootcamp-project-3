@@ -1,0 +1,14 @@
+To help with merging data for country visualizations using emdat/gdis merged data.
+https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes
+
+To grab statistics for countries for visualizations. 
+https://github.com/samayo/country-json/
+
+To understand the nature of the datasets we were playing with.
+https://www.nature.com/articles/s41597-021-00846-6#code-availability
+
+Download link for GDIS data/R files (requires account setup)
+https://sedac.ciesin.columbia.edu/data/set/pend-gdis-1960-2018/data-download
+
+Download for EMDAT data (requires account setup)
+https://public.emdat.be/
