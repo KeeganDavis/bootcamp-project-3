@@ -26,10 +26,10 @@ function newSelection(vizType, disastersMapData) {
                 <div id="disasterTypesBar"></div>
             </div>
             <div class="col-md-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Due to the limitations of this dataset, the differences in this bar chart are consistent with what we would expect. The tectonic plates mainly lie underneath the ocean
+              and not under land mass, so the low counts for earthquakes and volcanic activity make sense. According to the UN, <a 
+              href="https://www.un.org/esa/sustdev/natlinfo/indicators/methodology_sheets/oceans_seas_coasts/pop_coastal_areas.pdf">40% of the world's population lives within 100km of the
+              coast</a>. By looking at the map of all the disasters, it is clear that the majority of storms
             </div>`
         );
         addBar(disastersMapData);
@@ -69,18 +69,19 @@ function newSelection(vizType, disastersMapData) {
         div.html(
         ` <div class="p-2 home">
                 <h2 class="text-center">Natural Disaster Analysis</h2><hr>
-                <h4>Subtitle:</h4><br>
-                <p style="text-indent: 40px;">This is an analysis of the <a href="https://public.emdat.be/">EM-DAT International Disaster Database</a> after merging the dataset 
+                <h4>Data Sources:</h4><br>
+                <p>This is an analysis of the <a href="https://public.emdat.be/">EM-DAT International Disaster Database</a> after merging the dataset 
                 with the 'CSV-Disaster Location Centroids' file from the <a href="https://sedac.ciesin.columbia.edu/data/set/pend-gdis-1960-2018/data-download">
                 Socioeconomic Data and Applications Center Geocoded Disasters Dataset (GDIS), v1</a>. The EM-DAT database contained many null values for the latitude an longitude, so 
                 the GDIS dataset was used to fill in the gaps. In terms of ethical considerations, both datasets are freely available for non-commercial use upon registration for a 
                 complimentary account. Importantly, these datasets do not contain any personal information about individuals affected by the natural disasters, ensuring privacy 
                 concerns are adequately addressed. Additionally, since the disaster data is publicly accessible, no further ethical considerations were necessary for its utilization.
                 </p>
-                <h4>Subtitle:</h4><br>
-                <p style="text-indent: 40px;">This webpage analyzes 71,634 natural disasters through the use of visualizations to see if disasters follow a predictable pattern,
-                impact certain continents more than others, and if disasters affect locations </p>
-                <p>To get started, use the dropdown menu in the top left of the page under the header</p>
+                <h4>Webpage Description:</h4><br>
+                <p">This webpage analyzes 71,634 natural disasters through the use of visualizations to determine if disasters follow a predictable pattern,
+                impact certain continents more than others, and if disasters affect locations with larger populations.</p><br>
+                <h4>Usage:</h4><br>
+                <p>To get started, use the dropdown menu in the top left of the page under the header to start exploring the visualizations.</p>
           </div> `
         )
       }
