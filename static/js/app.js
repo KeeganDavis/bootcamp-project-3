@@ -89,14 +89,19 @@ function newSelection(vizType, disastersMapData) {
       } else if (vizType == 'perCapita') {
         // if the value of the selection is perCapita, update the html with the correct tags and attributes for the 4 bokeh bar graphs of per capita data
         div.html(
-          `<div class="d-flex justify-content-center">
+          `
+          <div class="d-flex justify-content-center">
               <div id="ec6d87a9-cd1c-456c-b3f1-e3ab0d4e7924" data-root-id="p1001" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center"> Note the less populous island countries dominate this tail of the spectrum. This points to both the size of population being a factor for disasters per capita, but also proximity to warm waters, elevation, rainfall, proximity to fault lines, and other geographical patterns common to island countries.
            </div>
            <div class="d-flex justify-content-center">
               <div id="cd497bf3-94e8-4c61-8303-e9da507667fd" data-root-id="p1036" style="display: contents;"></div>
            </div>
            <div class="d-flex justify-content-center">
               <div id="ddfb3fb9-391c-4340-870e-9673c4cbee8d" data-root-id="p1071" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center"> We notice on the reverse side of the spectrum that countries with relatively large populations dominate. And understandably so, per capita values always reflect population sizes to some extent. But India and China are still not even in the top 3 despite having substantially larger populations than the rest of the world. This points to other factors. Disaster reporting infrastructure could explain some of this. But clearly that can't be the primary determinant, because Sweden consistenly has lower disaster incidence than China, despite China having over 100 times the population of Sweden. China does have a much more spread out population centers, particularly along coasts to warm watered ocean, while Sweden does not have any particular disaster risks that come to mind, and due to a quarter of its citizenry residing in and around one major, fairly safe, municipality in Stockholm, this observation tracks.
            </div>
            <div class="d-flex justify-content-center">
               <div id="d26b6bc2-60b2-4fff-82b0-8a99dc0ea58a" data-root-id="p1106" style="display: contents;"></div>
