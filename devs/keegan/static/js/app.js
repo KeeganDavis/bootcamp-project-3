@@ -50,10 +50,8 @@ function newSelection(vizType, disastersMapData) {
           ` <div class="d-flex justify-content-center">
               <div id="e1758858-1708-4e8f-b375-62eaf71ce488" data-root-id="p1001" style="display: contents;"></div>
             </div>
-            <p style="margin-top: -150px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.text</p>`
+            <p style="margin-top: -150px">Chart showing the count of each disaster type for each year that the disaster occured in this dataset. The figure shown does not reflect individual, geographic 
+            locations. This figure represents the count of individual disaster events. The events may have each impacted more than one geographic location.</p>`
         )
         cl_plot1();
       } else if (vizType == 'byRegion') {
@@ -62,7 +60,7 @@ function newSelection(vizType, disastersMapData) {
           ` <div class="d-flex justify-content-center">
               <div id="ef6734e7-9e39-48ce-9c29-f953e4dac237" data-root-id="p1148" style="display: contents;"></div>
             </div>
-            <p style="margin-top: -145px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>`
+            <p style="margin-top: -145px;">Chart showing the count of each disaster type by region. Each bar group is a region with each bar representing an individual disaster type. </p>`
         )
         cl_plot2();
       } else if (vizType == 'home') {
