@@ -13,6 +13,7 @@
 - pandas 
 - pathlib
 - bokeh python 3.4
+- plotly v2.30.0
 
 ## Directory Structure
 - /resources/data_sources - contains raw data

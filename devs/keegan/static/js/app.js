@@ -78,6 +78,13 @@ function newSelection(vizType, disastersMapData) {
                 <p>To get started, use the dropdown menu in the top left of the page under the header to start exploring the visualizations.</p>
           </div> `
         )
+      } else if (vizType == 'cost') {
+        div.html(
+          `<div class="d-flex justify-content-center">
+              <div id="plotDiv"></div>
+            </div>`
+        )
+        fetchData();
       }
 
     }
