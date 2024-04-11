@@ -6,7 +6,7 @@
 - [Socioeconomic Data and Applications Center Geocoded Disasters Dataset (GDIS), v1](https://sedac.ciesin.columbia.edu/data/set/pend-gdis-1960-2018/data-download)
 - [Country ISO and Regional Codes](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes)
 - [Country Metrics](https://github.com/samayo/country-json/)
-
+ 
 
 ## Requirements
 - d3 v7
@@ -35,6 +35,22 @@
 - The json data was used to make visualizations using leaflet, bokeh, and apexcharts
 ## Results
 
+### Country Level Disaster Analysis
+
+As raw disaster count doesn't actually tell you much about how "dangerous" a country is, we looked at controlling this metric by population and country surface area to try to identify patterns. When controlling for population, note that the less populous island countries dominate the top tail of the spectrum. This points to both the size of population being a factor for disasters per capita (obviously), but also proximity to warm waters, elevation, rainfall, proximity to fault lines, and other geographical patterns common to island countries. 
+
+We notice on the reverse side of the spectrum that countries with relatively large populations dominate. And understandably so, per capita values always reflect population sizes to some extent. But India and China are still not even in the top 3 despite having substantially larger populations than the rest of the world. This points to other factors. Disaster reporting infrastructure could explain some of this. But clearly that can't be the primary determinant, because Sweden consistenly has lower disaster incidence than China, despite China having over 100 times the population of Sweden. China does have a much more spread out population centers, particularly along coasts to warm watered ocean, while Sweden does not have any particular disaster risks that come to mind, and due to a quarter of its citizenry residing in and around one major, fairly safe, municipality in Stockholm, this observation tracks.
+
+When controlling for surface area, note that the smallest countries are over represented, which is understandable. But island countries, which we can hypothesize to be particularly prone to disasters due to elevation, water proximity, and rainfall (among other factors), also happen to be quite small. Thus we would expect island countries to dominate this portion of the spectrum as well. 
+
+Unsurprisingly, Canada and Russia, being the largest two countries, have very few diasters per land area. But these countries are also relatively sparsely populated. Yet even smaller countries like Sweden, Norway, and Egypt show up in this end of the specctrum, which shine out due to lack of exposure to the same risk factors identified with the island countries that are dominating the highest ends of the spectrum. 
+
+Population and disaster count correlated decently well - in part because the disaster criteria essentially demanded that it affect people, so it depended on population intrinsically, even if only a little bit - but less so for surface area and drastically less so for population density, even when two massive outliers - Macao and Hong Kong - were removed. Again that is somewhat expected - we were using these qualities to try to control disaster counts in a way that the variation at the top and bottom of the spectrum could reveal insights into risk factors worth investigating. 
+Factors like proximity to warm waters, proximity to fault lines, elevation, weather patterns, and disaster reporting infrastructure are all likely major correlating factors that make population density and surface area less effective. 
+
+While nothing can be conclusively stated with exact confidence, the findings do point us in some future directions, which was the aim of this visualization. The concentration of island countries at the top portions of the spectrum when controlled for population and land area, while expected, does point to some potential risk factors for disasters. Annual rainfall totals, max daily rainfall, proximity to water, elevation, proximity to fault lines, and latitude/longitude are probably far better predictors of disaster frequency of a country, but that requires more analysis and research to corroborate. 
+
+
 ## Limitations and Further Research
 - The main limitations of the dataset are the criteria for what is considered a natural disaster by EM-DAT. Disasters were only counted when one of the following criteria are met: 
     - 10 fatalities 
@@ -42,6 +58,10 @@
     - A declaration of a state of emergency 
     - A call for international assistance.
 - This means this analysis isn't a true analysis of all natural disasters because there could be many disasters that weren't recorded because they didn't match any of the criteria.
+
+- There were other limitations when merging this dataset with other country statistics data. Data on population, population density, and surface area is sourced from the World Bank in 2020, so it is just barely outside of our data set timeline, which came from ~2000-2018. Further, grabbing one data point for populations of countries over a roughly 20 year period loses some significance - perhaps a median or mean population during the time frame could have been chosen instead. 
+- A final additional limitation is that coordinating between country statistics, ISO info to provide keys for merging, and the disaster dataset led to some data loss during merging. This certainly could be improved upon, but it was discovered late and can be seen as an area for future development. 
+
 ## Contributors
 - [Keegan Davis](https://github.com/KeeganDavis)
 - [Connor Lorden](https://github.com/clorden1)

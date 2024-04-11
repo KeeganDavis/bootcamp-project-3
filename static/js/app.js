@@ -93,7 +93,7 @@ function newSelection(vizType, disastersMapData) {
           <div class="d-flex justify-content-center">
               <div id="ec6d87a9-cd1c-456c-b3f1-e3ab0d4e7924" data-root-id="p1001" style="display: contents;"></div>
            </div>
-           <div class="d-flex justify-content-center"> Note the less populous island countries dominate this tail of the spectrum. This points to both the size of population being a factor for disasters per capita, but also proximity to warm waters, elevation, rainfall, proximity to fault lines, and other geographical patterns common to island countries.
+           <div class="d-flex justify-content-center"> As raw disaster count doesn't actually tell you much about how "dangerous" a country is, we looked at controlling this metric by population and country surface area to try to identify patterns. When controlling for population, note that the less populous island countries dominate the top tail of the spectrum. This points to both the size of population being a factor for disasters per capita (obviously), but also proximity to warm waters, elevation, rainfall, proximity to fault lines, and other geographical patterns common to island countries. 
            </div>
            <div class="d-flex justify-content-center">
               <div id="cd497bf3-94e8-4c61-8303-e9da507667fd" data-root-id="p1036" style="display: contents;"></div>
@@ -118,11 +118,15 @@ function newSelection(vizType, disastersMapData) {
           `<div class="d-flex justify-content-center">
               <div id="f408ef23-4c5e-489d-9471-e779c742f239" data-root-id="p1141" style="display: contents;"></div>
            </div>
+           <div class="d-flex justify-content-center"> When controlling for surface area, note that the smallest countries are over represented, which is understandable. But island countries, which we can hypothesize to be particularly prone to disasters due to elevation, water proximity, and rainfall (among other factors), also happen to be quite small. Thus we would expect island countries to dominate this portion of the spectrum as well. 
+           </div>
            <div class="d-flex justify-content-center">
               <div id="af4f7296-89ca-4940-bcb1-6c53aa77c8e7" data-root-id="p1176" style="display: contents;"></div>
            </div>
            <div class="d-flex justify-content-center">
               <div id="cdce65d4-e7b9-4ea3-96da-bd6f8b11c6d3" data-root-id="p1211" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center"> Unsurprisingly, Canada and Russia, being the largest two countries, have very few diasters per land area. But these countries are also relatively sparsely populated. Yet even smaller countries like Sweden, Norway, and Egypt show up in this end of the specctrum, which shine out due to lack of exposure to the same risk factors identified with the island countries that are dominating the highest ends of the spectrum. 
            </div>
            <div class="d-flex justify-content-center">
               <div id="b752a848-c88b-4c60-be82-d99810de2db2" data-root-id="p1246" style="display: contents;"></div>
@@ -147,6 +151,8 @@ function newSelection(vizType, disastersMapData) {
            </div>
            <div class="d-flex justify-content-center">
               <div id="c0d55ae4-53a0-4609-a3c3-a613d28f9583" data-root-id="p1473" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center"> Population and disaster count correlated decently well, but less so for surface area and drastically less so for population density, even when two massive outliers - Macao and Hong Kong - were removed. Again that is somewhat expected - we were using these qualities to try to control disaster counts in a way that the variation at the top and bottom of the spectrum could reveal insights into risk factors worth investigating. But population had a decent correlation, in part because the disaster criteria essentially demanded that it affect people, so it depended on population intrinsically, even if only a little bit. 
            </div>
            `
         )
