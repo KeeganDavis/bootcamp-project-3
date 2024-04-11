@@ -32,7 +32,7 @@ function addBar(disasterData) {
           height: '800px',
         },
         title: {
-            text: 'Disaster Types',
+            text: 'Locations Impacted by Each Type of Disaster',
             align: 'middle',
             style: {
                 fontSize: '32px'

@@ -22,21 +22,16 @@ function newSelection(vizType, disastersMapData) {
       if (vizType == 'bar') {
         // if the value of the selection is bar, update the html with the correct tags and attributes for the bar graph to be displayed when the function is called
         div.html(
-          `<div class="p-2 col-md-10">
+          `<div class="p-2 col-md-12" style="margin-top: -50px;">
                 <div id="disasterTypesBar"></div>
             </div>
-            <div class="col-md-2">
-              Due to the limitations of this dataset, the differences in this bar chart are consistent with what we would expect. The tectonic plates mainly lie underneath the ocean
-              and not under land mass, so the low counts for earthquakes and volcanic activity make sense. According to the UN, <a 
-              href="https://www.un.org/esa/sustdev/natlinfo/indicators/methodology_sheets/oceans_seas_coasts/pop_coastal_areas.pdf">40% of the world's population lives within 100km of the
-              coast</a>. By looking at the map of all the disasters, it is clear that the majority of storms
-            </div>`
+            `
         );
         addBar(disastersMapData);
       } else if (vizType == 'map') {
         // if the value of the selection is map, update the html with the correct tags and attributes for the map to be displayed when the function is called
         div.html(
-          ` <div style="margin-top: -35px;">
+          ` <div style="margin-top: -55px;">
                 <h2 class="text-center">Map of All Geolocations Affected by Natural Disasters</h2>
                 <div id="allDisastersMap" style="border-radius: 15px; border: 5px solid #a7b39b" margin="5px"></div>
                 <footer>*Disasters only counted when one of the following criteria are met: 10 fatalities,
@@ -50,7 +45,7 @@ function newSelection(vizType, disastersMapData) {
           ` <div class="d-flex justify-content-center">
               <div id="e1758858-1708-4e8f-b375-62eaf71ce488" data-root-id="p1001" style="display: contents;"></div>
             </div>
-            <p style="margin-top: -150px">Chart showing the count of each disaster type for each year that the disaster occured in this dataset. The figure shown does not reflect individual, geographic 
+            <p style="margin-top: -150px">Chart showing the count of each disaster type for each year that the disaster occurred in this dataset. The figure shown does not reflect individual, geographic 
             locations. This figure represents the count of individual disaster events. The events may have each impacted more than one geographic location.</p>`
         )
         cl_plot1();
@@ -64,6 +59,7 @@ function newSelection(vizType, disastersMapData) {
         )
         cl_plot2();
       } else if (vizType == 'home') {
+         // if value of selection is home, display home page
         div.html(
         ` <div class="p-2 home">
                 <h2 class="text-center">Natural Disaster Analysis</h2><hr>
