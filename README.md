@@ -27,3 +27,16 @@
 
 **JavaScript**
 1. Bokeh :https://docs.bokeh.org/en/2.4.1/docs/user_guide/bokehjs.html
+
+### Results
+
+**Disasters over Time**
+Distributions of disaster types appears roughly equal across all continents. Some exceptions pf this are
+- Africa experiences more drought than other continents proportionally.
+- The proportion of storm to flood in the Americas is greater than other regions.
+- Asia experiences proportionally more earthquakes the most other regions.
+- Europe experiences a higher proportion of extreme temperature disasters relative to other continents.
+
+
+### Ethical Considerations
+Our data set was publicly available. It lacks any uniquely identifying information of individuals in the data set. We feel the ethical concerns regarding the privacy of individuals in our data set are minimal. An ethical consideration should be that this data set and the interpretations made from our visuals should play a role in decision making designed to prevent future disasters from occurring.
