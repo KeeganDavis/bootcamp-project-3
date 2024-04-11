@@ -85,6 +85,66 @@ function newSelection(vizType, disastersMapData) {
             </div>`
         )
         fetchData();
+      } else if (vizType == 'perCapita') {
+        div.html(
+          `<div class="d-flex justify-content-center">
+              <div id="ec6d87a9-cd1c-456c-b3f1-e3ab0d4e7924" data-root-id="p1001" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center">
+              <div id="cd497bf3-94e8-4c61-8303-e9da507667fd" data-root-id="p1036" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center">
+              <div id="ddfb3fb9-391c-4340-870e-9673c4cbee8d" data-root-id="p1071" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center">
+              <div id="d26b6bc2-60b2-4fff-82b0-8a99dc0ea58a" data-root-id="p1106" style="display: contents;"></div>
+           </div>
+           `
+        )
+        rt_plot1();
+        rt_plot2();
+        rt_plot3();
+        rt_plot4();
+      } else if (vizType == 'perSA') {
+        div.html(
+          `<div class="d-flex justify-content-center">
+              <div id="f408ef23-4c5e-489d-9471-e779c742f239" data-root-id="p1141" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center">
+              <div id="af4f7296-89ca-4940-bcb1-6c53aa77c8e7" data-root-id="p1176" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center">
+              <div id="cdce65d4-e7b9-4ea3-96da-bd6f8b11c6d3" data-root-id="p1211" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center">
+              <div id="b752a848-c88b-4c60-be82-d99810de2db2" data-root-id="p1246" style="display: contents;"></div>
+           </div>
+           `
+        )
+        rt_plot5();
+        rt_plot6();
+        rt_plot7();
+        rt_plot8();
+      } else if (vizType == 'disasterCorr') {
+        div.html(
+          `<div class="d-flex justify-content-center">
+              <div id="eab10094-f0ac-4793-afbd-0352f24036f0" data-root-id="p1281" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center">
+              <div id="c5a3d27b-c0df-4b61-bb94-1f8dc80bfe7e" data-root-id="p1345" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center">
+              <div id="d5bbe785-0d38-407c-a2a2-7c7402d77798" data-root-id="p1409" style="display: contents;"></div>
+           </div>
+           <div class="d-flex justify-content-center">
+              <div id="c0d55ae4-53a0-4609-a3c3-a613d28f9583" data-root-id="p1473" style="display: contents;"></div>
+           </div>
+           `
+        )
+        rt_plot9();
+        rt_plot10();
+        rt_plot11();
+        rt_plot12();
       }
 
     }
