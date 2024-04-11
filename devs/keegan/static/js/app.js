@@ -79,6 +79,7 @@ function newSelection(vizType, disastersMapData) {
           </div> `
         )
       } else if (vizType == 'cost') {
+        // if the value of the selection is cost, update the html with the disaster costs plotly bar graph
         div.html(
           `<div class="d-flex justify-content-center">
               <div id="plotDiv"></div>
@@ -86,6 +87,7 @@ function newSelection(vizType, disastersMapData) {
         )
         fetchData();
       } else if (vizType == 'perCapita') {
+        // if the value of the selection is perCapita, update the html with the correct tags and attributes for the 4 bokeh bar graphs of per capita data
         div.html(
           `<div class="d-flex justify-content-center">
               <div id="ec6d87a9-cd1c-456c-b3f1-e3ab0d4e7924" data-root-id="p1001" style="display: contents;"></div>
@@ -106,6 +108,7 @@ function newSelection(vizType, disastersMapData) {
         rt_plot3();
         rt_plot4();
       } else if (vizType == 'perSA') {
+        // if the value of the selection is perSA, update the html with the correct tags and attributes for the bokeh bar graphs of per surface area data
         div.html(
           `<div class="d-flex justify-content-center">
               <div id="f408ef23-4c5e-489d-9471-e779c742f239" data-root-id="p1141" style="display: contents;"></div>
@@ -126,6 +129,7 @@ function newSelection(vizType, disastersMapData) {
         rt_plot7();
         rt_plot8();
       } else if (vizType == 'disasterCorr') {
+        // if the value of the selection is byRegion, update the html with the correct tags and attributes for the bokeh correlations of disasters
         div.html(
           `<div class="d-flex justify-content-center">
               <div id="eab10094-f0ac-4793-afbd-0352f24036f0" data-root-id="p1281" style="display: contents;"></div>
