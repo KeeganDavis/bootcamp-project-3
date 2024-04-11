@@ -12,3 +12,23 @@ https://sedac.ciesin.columbia.edu/data/set/pend-gdis-1960-2018/data-download
 
 Download for EMDAT data (requires account setup)
 https://public.emdat.be/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Misc. Sources for questions and documentation:
+
+https://stackoverflow.com/questions/49833824/interactive-scatter-plot-in-bokeh-with-hover-tool
