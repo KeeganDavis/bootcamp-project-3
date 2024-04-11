@@ -1,3 +1,6 @@
+-------------------------
+# Riley's Sources
+
 To help with merging data for country visualizations using emdat/gdis merged data.
 https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes
 
@@ -14,21 +17,103 @@ Download for EMDAT data (requires account setup)
 https://public.emdat.be/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---------------------------------
 Misc. Sources for questions and documentation:
 
 https://stackoverflow.com/questions/49833824/interactive-scatter-plot-in-bokeh-with-hover-tool
+
+
+country-json/src/country-by-iso-numeric.json at master · samayo/country-json
+https://github.com/samayo/country-json/blob/master/src/country-by-iso-numeric.json
+
+ISO 3166-1 alpha-3 - Wikipedia
+https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
+
+ISO 3166-1 numeric - Wikipedia
+https://en.wikipedia.org/wiki/ISO_3166-1_numeric
+
+lukes/ISO-3166-Countries-with-Regional-Codes: ISO 3166-1 country lists merged with their UN Geoscheme regional codes in ready-to-use JSON, XML, CSV data sets
+https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes
+
+python - Pandas dataframe get first row of each group - Stack Overflow
+https://stackoverflow.com/questions/20067636/pandas-dataframe-get-first-row-of-each-group
+
+Difference between count and nunique formatting · Issue #32463 · pandas-dev/pandas
+https://github.com/pandas-dev/pandas/issues/32463
+
+High Level Charts — Bokeh 0.8.2 documentation
+https://docs.bokeh.org/en/0.8.2/docs/user_guide/charts.html
+
+bokeh.plotting — Bokeh 3.4.0 Documentation
+https://docs.bokeh.org/en/latest/docs/reference/plotting.html
+
+python - Sorting columns and selecting top n rows in each group pandas dataframe - Stack Overflow
+https://stackoverflow.com/questions/41825978/sorting-columns-and-selecting-top-n-rows-in-each-group-pandas-dataframe
+
+python - How to delete rows from a pandas DataFrame based on a conditional expression - Stack Overflow
+https://stackoverflow.com/questions/13851535/how-to-delete-rows-from-a-pandas-dataframe-based-on-a-conditional-expression
+
+
+python - Bokeh plot regression lines on scatter plot - Stack Overflow
+https://stackoverflow.com/questions/54603873/bokeh-plot-regression-lines-on-scatter-plot
+
+
+bokeh.palettes — Bokeh 3.4.0 Documentation
+https://docs.bokeh.org/en/latest/docs/reference/palettes.html
+
+bokeh.palettes — Bokeh 3.4.0 Documentation
+https://docs.bokeh.org/en/latest/docs/reference/palettes.html#large-palettes
+
+How to use Color Palettes in Python-Bokeh? - GeeksforGeeks
+https://www.geeksforgeeks.org/how-to-use-color-palettes-in-python-bokeh/#
+
+interpolation - How to get Bokeh to interpolate a palette from 3 colors - Stack Overflow
+https://stackoverflow.com/questions/67118061/how-to-get-bokeh-to-interpolate-a-palette-from-3-colors
+
+Creating Colormaps in Matplotlib — Matplotlib 3.8.4 documentation
+https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html
+
+Generating and slicing colormaps for presentation.ipynb - Colab
+https://colab.research.google.com/drive/1eQ7Bw5ao8FGW_jauOt3vz5dmrxHe14CM?usp=sharing
+
+python - How to rotate X-axis labels in bokeh figure? - Stack Overflow
+https://stackoverflow.com/questions/42354648/how-to-rotate-x-axis-labels-in-bokeh-figure
+
+Styling plot elements — Bokeh 3.4.0 Documentation
+https://docs.bokeh.org/en/latest/docs/user_guide/styling/plots.html#ug-styling-plots
+
+ChatGPT
+https://chat.openai.com/c/c63efec5-35a7-4d57-b93a-f001eeee7efd
+
+Bokeh Plot
+file:///C:/Users/rttay/AppData/Local/Temp/tmpzak_y6ok.html
+
+Tooltips — Bokeh 3.4.0 Documentation
+https://docs.bokeh.org/en/latest/docs/user_guide/interaction/tooltips.html
+
+python - interactive scatter plot in bokeh with hover tool - Stack Overflow
+https://stackoverflow.com/questions/49833824/interactive-scatter-plot-in-bokeh-with-hover-tool
+
+python - How to restart kernel in VSCode to completely reload imports? - Stack Overflow
+https://stackoverflow.com/questions/63595912/how-to-restart-kernel-in-vscode-to-completely-reload-imports
+
+visual studio code - Error loading webview: Error: Could not register service workers: TypeError: Failed to register a ServiceWorker for scope - Stack Overflow
+https://stackoverflow.com/questions/67698176/error-loading-webview-error-could-not-register-service-workers-typeerror-fai
+
+
+
+---------------
+The following three were used for updating the data with Russian Federation data, because it's ISO code was missing from one of the original data stores. We discovered this when analyzing the plots of country disasters per area, where Russia should have been prominent but was not originally there. 
+
+List of countries and dependencies by area - Wikipedia
+https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_area
+
+List of ISO 3166 country codes - Wikipedia
+https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
+
+python - Insert a row to pandas dataframe - Stack Overflow
+https://stackoverflow.com/questions/24284342/insert-a-row-to-pandas-dataframe
+
+python - Set value for particular cell in pandas DataFrame using index - Stack Overflow
+https://stackoverflow.com/questions/13842088/set-value-for-particular-cell-in-pandas-dataframe-using-index
+

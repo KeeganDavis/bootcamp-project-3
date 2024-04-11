@@ -228,11 +228,12 @@ function rt_plot4() {
 
 //html
 /*
-<div id="af4f7296-89ca-4940-bcb1-6c53aa77c8e7" data-root-id="p1176" style="display: contents;"></div>
+<div id="f408ef23-4c5e-489d-9471-e779c742f239" data-root-id="p1141" style="display: contents;"></div>
+
 */
 
 
-//plots topp 25 countries by disaster per area
+//plots top 25 countries by disaster per area
 function rt_plot5() {
     const fn = function () {
         Bokeh.safely(function () {
