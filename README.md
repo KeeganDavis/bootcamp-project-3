@@ -2,7 +2,7 @@
 
 Natural Disaster Costs and Damage Analysis
 Overview
-This repository contains the code and data for analyzing the economic impact of natural disasters worldwide. The analysis focuses on assessing the total costs and damages associated with different types of natural disasters across various regions. By examining historical data from the Emergency Events Database (EM-DAT) spanning from 2000 to 2018, we aim to identify trends, patterns, and insights to inform disaster risk management and resilience-building efforts.
+This repository contains the code and data for analyzing the economic impact of natural disasters worldwide. The analysis focuses on assessing the total costs and damages associated with different types of natural disasters across various regions. By examining historical data from the Emergency Events Database (EM-DAT) spanning from 2001 to 2018, we aim to identify trends, patterns, and insights to inform disaster risk management and resilience-building efforts.
 
 Key Findings
 Regional Disparities:
