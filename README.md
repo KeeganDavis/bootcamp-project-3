@@ -1,12 +1,12 @@
 # Natural Disasters Analysis (2001-2018) 
 ## Overview
-
+- This repo analyzes 71,634 natural disasters through the use of visualizations to determine if disasters follow a predictable pattern, impact certain continents more than others, if disasters affect locations with larger populations, and which disasters cause the most damage. In terms of ethical considerations, both datasets are freely available for non-commercial use upon registration for a complimentary account. Importantly, these datasets do not contain any personal information about individuals affected by the natural disasters, ensuring privacy concerns are adequately addressed. Additionally, since the disaster data is publicly accessible, no further ethical considerations were necessary for its utilization.
 ## Data Sources
 - [EM-DAT International Disaster Database](https://public.emdat.be/)
 - [Socioeconomic Data and Applications Center Geocoded Disasters Dataset (GDIS), v1](https://sedac.ciesin.columbia.edu/data/set/pend-gdis-1960-2018/data-download)
 - [Country ISO and Regional Codes](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes)
 - [Country Metrics](https://github.com/samayo/country-json/)
- 
+- [Tectonic plates coordinates](https://github.com/fraxen/tectonicplates)
 
 ## Requirements
 - d3 v7
@@ -34,13 +34,15 @@
 - The merged data was then converted to json and hosted on GitHub pages [here](https://github.com/KeeganDavis/disaster-data-json).
 - The json data was used to make visualizations using leaflet, bokeh, and apexcharts
 ## Results
-
+### Map 
+- When looking at the equator, we would expect there to be a concentration of extreme temperature and drought to be high in countries close to the equator. However, this is not the case because the majority of extreme temperature disasters were actually cold weather related, not heat related. The concentration of droughts is high near the equator because those temperatures are prone to high temperatures, so long periods without rain are more likely. There is a high concentration of storms and floods in countries surrounded by the ocean, which is to be expected because these areas are more likely to experience weather conditions that lead to these disasters than more landlocked countries. Both wet and dry mass movements are a little less predictable, but it seems like the tend to happen near mountain ranges. When looking at earthquakes and volcanic activity, the disasters tend to lie near the tectonic plates, which is to be expected. There are a few outliers for earthquakes, but this is because the subtypes of earthquakes include ground movement and tsunamis. Overall these disasters seem to follow relatively predictable patterns based off the geography and weather patters of the countries that were impacted by all of these natural disasters.
 ### Disasters over Time
 - Floods were the number 1 disaster by count in each year of our dataset.
 - Storms were the second most common disaster each year in our dataset.
 - Earthquakes were generally the third most common disaster.
 - The rank of most other disaster types appears grouped together at lower frequencies from year to year in our data set.
-
+### Locations Impacted by Each Type of Disaster
+- The bar chart of all locations affected by disasters is also what we would expect to see. Extreme temperatures include both hot and cold temperatures, so that means that nearly all countries are at risk of experiencing an  extreme temperature disaster. According to the UN, [40% of the world's population lives within 100km of the coast](https://www.un.org/esa/sustdev/natlinfo/indicators/methodology_sheets/oceans_seas_coasts/pop_coastal_areas.pdf), so the total locations being affected by storms and floods should be high due to the disaster having to affect a certain number of people to be included in the dataset. The drought data being next is most likely because there are 2 factors more commonly associated with droughts, which are high temperatures and lack of precipitation. Earthquakes and volcanic activity are also expected to be low because the tectonic plates are not primarily located under land, so these disasters may be happening often, but they don't fit the criteria to be in the dataset. Dry and wet mass movements are less predictable and are more likely to happen in areas that are less populated, so it makes sense that these disasters would be at the bottom.
 ### Disaster count by Region
 Distributions of disaster types appears roughly equal across all continents. Some exceptions to this are:
 - Africa experiences more drought than other continents proportionally.
@@ -86,7 +88,6 @@ Our data set was publicly available. It lacks any uniquely identifying informati
 ## Code Sources
 - [loop through objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
 - [Select box styling](https://codepen.io/raubaca/pen/bGWmZje)
-- [Tectonic plates coordinates](https://github.com/fraxen/tectonicplates)
 - [sort object by values](https://stackoverflow.com/questions/1069666/sorting-object-property-by-values)
 
 -------------------------
