@@ -35,6 +35,19 @@
 - The json data was used to make visualizations using leaflet, bokeh, and apexcharts
 ## Results
 
+### Disasters over Time
+- Floods were the number 1 disaster by count in each year of our dataset.
+- Storms were the second most common disaster each year in our dataset.
+- Earthquakes were generally the third most common disaster.
+- The rank of most other disaster types appears grouped together at lower frequencies from year to year in our data set.
+
+### Disaster count by Region
+Distributions of disaster types appears roughly equal across all continents. Some exceptions to this are:
+- Africa experiences more drought than other continents proportionally.
+- The proportion of storm to flood in the Americas is greater than other regions.
+- Asia experiences proportionally more earthquakes the most other regions.
+- Europe experiences a higher proportion of extreme temperature disasters relative to other continents.
+
 ### Country Level Disaster Analysis
 
 As raw disaster count doesn't actually tell you much about how "dangerous" a country is, we looked at controlling this metric by population and country surface area to try to identify patterns. When controlling for population, note that the less populous island countries dominate the top tail of the spectrum. This points to both the size of population being a factor for disasters per capita (obviously), but also proximity to warm waters, elevation, rainfall, proximity to fault lines, and other geographical patterns common to island countries. 
@@ -60,7 +73,10 @@ While nothing can be conclusively stated with exact confidence, the findings do 
 - This means this analysis isn't a true analysis of all natural disasters because there could be many disasters that weren't recorded because they didn't match any of the criteria.
 
 - There were other limitations when merging this dataset with other country statistics data. Data on population, population density, and surface area is sourced from the World Bank in 2020, so it is just barely outside of our data set timeline, which came from ~2000-2018. Further, grabbing one data point for populations of countries over a roughly 20 year period loses some significance - perhaps a median or mean population during the time frame could have been chosen instead. 
-- A final additional limitation is that coordinating between country statistics, ISO info to provide keys for merging, and the disaster dataset led to some data loss during merging. This certainly could be improved upon, but it was discovered late and can be seen as an area for future development. 
+- A final additional limitation is that coordinating between country statistics, ISO info to provide keys for merging, and the disaster dataset led to some data loss during merging. This certainly could be improved upon, but it was discovered late and can be seen as an area for future development.
+
+### Ethical Considerations
+Our data set was publicly available. It lacks any uniquely identifying information of individuals in the data set. We feel the ethical concerns regarding the privacy of individuals in our data set are minimal. An ethical consideration should be that this data set and the interpretations made from our visuals should play a role in decision making designed to prevent future disasters from occurring.
 
 ## Contributors
 - [Keegan Davis](https://github.com/KeeganDavis)
